@@ -1,0 +1,16 @@
+class Solution {
+    public int maxGoodNumber(int[] nums) {
+        String str[]=new String[3];
+        for(int i=0;i<3;i++){
+            str[i]=Integer.toBinaryString(nums[i]);
+        }
+        Arrays.sort(str , new Comparator<String>(){
+            public int compare(String a,String b){
+                return (b+a).compareTo(a+b);
+            }
+        });
+        
+        String ans=str[0]+str[1]+str[2];
+        return Integer.parseInt(ans,2);
+    }
+}
